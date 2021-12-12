@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import s from "./Contacts.module.css";
 
-const Contacts = ({ visibleContacts, onDeleteContact }) => {
+const Contacts = ({ contacts, onDeleteContact }) => {
   return (
     <ul>
-      {visibleContacts().map(({ id, name, number }) => (
+      {contacts().map(({ id, name, number }) => (
         <li key={id} className={s.item}>
           <span className={s.contact}>
             Name:<span className={s.contactItem}>{name}</span>
@@ -28,7 +28,7 @@ const Contacts = ({ visibleContacts, onDeleteContact }) => {
 
 Contacts.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
-  visibleContacts: PropTypes.func.isRequired,
+  contacts: PropTypes.func.isRequired,
 };
 
 export default Contacts;
